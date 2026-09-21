@@ -1,0 +1,49 @@
+{
+  "package_id": "company.takashi.plugin.loader",
+  "edition": "202601",
+  "name": "Plugin Loader",
+  "version": "0.5.1",
+  "min_app_version": "2.0.0",
+  "min_sdk_version": "0.0.9",
+  "description": "開発中プラグインのdev serverへ切り替えるためのローダー。登録済みのdev server一覧から選んでWebViewを遷移させる。",
+  "author": "takashicompany",
+  "entrypoint": "index.html",
+  "permissions": [
+    {
+      "name": "network",
+      "desc": "登録した開発中プラグインのdev serverへ接続する",
+      "whitelist": [
+        "http://192.168.1.10:5173",
+        "http://192.168.1.10:5174",
+        "http://192.168.1.10:5175",
+        "http://192.168.1.10:5176",
+        "http://192.168.1.10:5177",
+        "http://192.168.1.10:5178",
+        "http://192.168.1.10:5179",
+        "http://192.168.1.10:5180",
+        "http://192.168.1.10:5181",
+        "http://192.168.1.10:5182",
+        "http://192.168.1.10:5183",
+        "http://192.168.1.10:6173",
+        "http://192.168.1.10:6174",
+        "http://192.168.1.10:6175",
+        "http://192.168.1.10:6176",
+        "http://192.168.1.10:6177",
+        "http://192.168.1.10:6178",
+        "http://192.168.1.10:6179",
+        "http://192.168.1.10:6180",
+        "http://192.168.1.10:6181",
+        "http://192.168.1.10:6182",
+        "http://192.168.1.10:6183"
+      ]
+    },
+    {
+      "name": "camera",
+      "desc": "evenhub qr が表示するQRコードを撮影して接続先URLを読み取る"
+    }
+  ],
+  "supported_languages": [
+    "ja",
+    "en"
+  ]
+}

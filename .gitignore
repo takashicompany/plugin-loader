@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.ehpk
+proxy/proxy.log
+tools/e2e-out/
+.DS_Store
+qr_dev.png
+__pycache__/
+
+# Local credentials and development overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+proxy/targets.local.json

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Even Loader</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="app-header">
+      <h1>Even Loader</h1>
+      <p class="muted" data-i18n="tagline">Loader that switches the WebView to an in-development plugin dev server</p>
+    </header>
+
+    <section class="card" id="statusCard">
+      <h2 data-i18n="statusHead">Status</h2>
+      <div class="status-row"><span class="status-label">Bridge</span><span id="bridgeStatus" class="status-value">Checking…</span></div>
+      <div class="status-row"><span class="status-label">Version</span><span id="appVersion" class="status-value">-</span></div>
+      <div class="status-row"><span class="status-label">Origin</span><span id="pageOrigin" class="status-value">-</span></div>
+      <div class="status-row"><span class="status-label" data-i18n="languageLabel">Language</span><span class="status-value"><select id="langSelect">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+      </select></span></div>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="listHead">Dev servers</h2>
+      <ul id="serverList" class="server-list"></ul>
+      <p id="serverListEmpty" class="muted small" data-i18n="listEmpty" hidden>No servers registered. Add one with the form below.</p>
+    </section>
+
+    <section class="card">
+      <h2 id="formTitle">Add a server</h2>
+      <div class="qr-add-row">
+        <button id="qrAddBtn" type="button" data-i18n="qrAddBtn">Add via QR</button>
+        <span class="muted small" data-i18n="qrHint">Scan an "evenhub qr" code to fill in the URL</span>
+      </div>
+      <input id="qrFileInput" type="file" accept="image/*" capture="environment" hidden />
+      <div id="qrError" class="form-error" hidden></div>
+      <form id="serverForm">
+        <label><span data-i18n="labelName">Name</span>
+          <input id="formName" type="text" placeholder="my-plugin" autocapitalize="off" autocorrect="off" spellcheck="false" required />
+        </label>
+        <label><span data-i18n="labelUrl">URL</span>
+          <input id="formUrl" type="url" inputmode="url" placeholder="http://192.168.1.10:5183" autocapitalize="off" autocorrect="off" spellcheck="false" required />
+        </label>
+        <div id="formError" class="form-error" hidden></div>
+        <div class="form-actions">
+          <button id="formSubmit" type="submit" class="primary">Add</button>
+          <button id="formCancel" type="button" data-i18n="btnCancel" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2 data-i18n="logHead">Log</h2>
+      <pre id="log" class="log"></pre>
+    </section>
+  </main>
+
+  <!-- QRライブスキャン用モーダル (getUserMedia が使える環境のみ表示) -->
+  <div id="qrModal" class="qr-modal" hidden>
+    <div class="qr-modal-body">
+      <h2 data-i18n="qrModalTitle">Scan QR code</h2>
+      <video id="qrVideo" playsinline autoplay muted></video>
+      <p class="muted small" data-i18n="qrModalHint">Point the camera at the QR code</p>
+      <div class="form-actions">
+        <button id="qrCancelBtn" type="button" data-i18n="btnCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

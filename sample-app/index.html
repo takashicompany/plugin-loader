@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Sample App</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <main id="app">
+    <header class="app-header">
+      <h1>Sample App</h1>
+      <p class="muted">even-loaderから接続されました</p>
+    </header>
+
+    <section class="card">
+      <h2>ステータス</h2>
+      <div class="status-row"><span class="status-label">Bridge</span><span id="bridgeStatus" class="status-value">確認中…</span></div>
+      <div class="status-row"><span class="status-label">Version</span><span id="appVersion" class="status-value">-</span></div>
+      <div class="status-row"><span class="status-label">Origin</span><span id="pageOrigin" class="status-value">-</span></div>
+    </section>
+
+    <section class="card">
+      <h2>カウンター (G2タップ / 下のボタンで加算)</h2>
+      <div class="counter" id="counterValue">0</div>
+      <div class="form-actions">
+        <button id="incrementBtn" type="button" class="primary">+1</button>
+        <button id="backBtn" type="button">ローダーに戻る</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Bridge呼び出しログ</h2>
+      <pre id="log" class="log"></pre>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "even-loader-workspace",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix loader install && npm --prefix sample-app install && npm --prefix proxy install",
+    "proxy": "node proxy/server.ts",
+    "typecheck": "npm --prefix loader run typecheck && npm --prefix sample-app run typecheck",
+    "build": "npm --prefix loader run build && npm --prefix sample-app run build",
+    "pack": "npm --prefix loader run pack && npm --prefix sample-app run pack",
+    "dev:loader": "npm --prefix loader run dev",
+    "dev:sample": "npm --prefix sample-app run dev"
+  }
+}

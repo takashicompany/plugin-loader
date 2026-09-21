@@ -1,0 +1,13 @@
+{
+  "name": "even-loader-proxy",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "開発中プラグインの dev server に even-loader-shim を注入するリバースプロキシ",
+  "scripts": {
+    "start": "node server.ts"
+  },
+  "dependencies": {
+    "http-proxy-3": "^1.23.3"
+  }
+}

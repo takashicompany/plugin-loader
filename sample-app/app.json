@@ -1,0 +1,16 @@
+{
+  "package_id": "company.takashi.evenloader.sample",
+  "edition": "202601",
+  "name": "Loader Sample",
+  "version": "0.1.0",
+  "min_app_version": "2.0.0",
+  "min_sdk_version": "0.0.9",
+  "description": "even-loaderからの切り替え検証用のサンプル開発プラグイン。遷移後もbridgeが動作するかを確認する。",
+  "author": "takashicompany",
+  "entrypoint": "index.html",
+  "permissions": [],
+  "supported_languages": [
+    "ja",
+    "en"
+  ]
+}

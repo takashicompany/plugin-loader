@@ -1,0 +1,4 @@
+[
+  { "name": "external-app", "target": "http://127.0.0.1:5173", "port": 6173 },
+  { "name": "sample-app", "target": "http://127.0.0.1:5183", "port": 6183 }
+]

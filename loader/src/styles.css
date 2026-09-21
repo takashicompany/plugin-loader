@@ -1,0 +1,142 @@
+:root {
+  color-scheme: dark;
+  --bg: #101418;
+  --card: #1a2027;
+  --border: #2b3440;
+  --text: #e6ebf0;
+  --muted: #8b98a5;
+  --accent: #3fb27f;
+  --danger: #d05858;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+#app {
+  max-width: 560px;
+  margin: 0 auto;
+  /* 下余白を大きめに: iOSでソフトキーボードを閉じた後に下方向スクロールが
+     できなくなる問題への対処 (末尾要素まで届くように余裕を持たせる) */
+  padding: 16px 12px calc(45vh + env(safe-area-inset-bottom, 0px));
+}
+
+.app-header h1 { margin: 0; font-size: 22px; }
+.app-header p { margin: 2px 0 0; }
+
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 14px;
+}
+.card h2 { margin: 0 0 8px; font-size: 15px; color: var(--muted); font-weight: 600; }
+
+.status-row { display: flex; gap: 10px; padding: 2px 0; }
+.status-label { width: 70px; color: var(--muted); flex-shrink: 0; }
+.status-value { word-break: break-all; }
+.status-value.ok { color: var(--accent); }
+.status-value.err { color: var(--danger); }
+
+.server-list { list-style: none; margin: 0; padding: 0; }
+.server-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.server-item.selected { border-color: var(--accent); background: rgba(63, 178, 127, 0.08); }
+.server-item .server-name { font-weight: 600; }
+.server-item .server-url { font-size: 12px; color: var(--muted); word-break: break-all; }
+.server-actions { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+
+button {
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #232b34;
+  color: var(--text);
+  padding: 4px 10px;
+  cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #08130d; font-weight: 600; }
+button.connect { background: var(--accent); border-color: var(--accent); color: #08130d; font-weight: 600; }
+button.danger { color: var(--danger); border-color: var(--danger); }
+button:disabled { opacity: 0.4; cursor: default; }
+
+form label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 13px; }
+form input {
+  display: block;
+  width: 100%;
+  margin-top: 2px;
+  padding: 8px;
+  font: inherit;
+  /* 16px未満だとiOS WebViewがフォーカス時に自動ズームする (even-jpと同じ対策) */
+  font-size: 16px;
+  color: var(--text);
+  background: #0d1114;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.form-error { color: var(--danger); font-size: 13px; margin-bottom: 8px; }
+.form-actions { display: flex; gap: 8px; }
+
+.qr-add-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.qr-add-row button { flex-shrink: 0; }
+
+.qr-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.qr-modal[hidden] { display: none; }
+.qr-modal-body {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  width: 100%;
+  max-width: 420px;
+}
+.qr-modal-body h2 { margin: 0 0 8px; font-size: 15px; color: var(--muted); font-weight: 600; }
+.qr-modal-body video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #000;
+  border-radius: 8px;
+}
+.qr-modal-body p { margin: 8px 0; }
+
+.log {
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 11px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--muted);
+}

@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- E2E/シミュレータ検証用: 接続先一覧を browser localStorage に投入してローダーへ移動する。
+     使い方: /e2e-seed.html?name=sample-app&url=http://127.0.0.1:5183
+     実機運用では使わない (開いても localStorage に1件書くだけ)。 -->
+<meta charset="utf-8">
+<title>even-loader e2e seed</title>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search)
+    var urls = q.getAll('url')
+    var names = q.getAll('name')
+    if (urls.length > 0) {
+      var entries = urls.map(function (u, i) {
+        return { name: names[i] || u, url: u, memo: 'e2e-seed' }
+      })
+      localStorage.setItem('even_loader_servers_v1', JSON.stringify(entries))
+      document.title = 'seeded'
+    }
+    // 履歴を増やさないよう replace でローダーへ
+    location.replace('/')
+  })()
+</script>

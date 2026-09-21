@@ -1,0 +1,24 @@
+{
+  "name": "even-loader",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5178",
+    "build": "vite build",
+    "preview": "vite preview",
+    "qr": "evenhub qr --http --port 5178",
+    "pack": "npm run build && node -e \"const v=require('./app.json').version;require('child_process').execSync('evenhub pack app.json dist -o even-loader-'+v+'.ehpk',{stdio:'inherit'})\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "^0.0.13",
+    "jsqr": "^1.4.0"
+  },
+  "devDependencies": {
+    "@evenrealities/evenhub-cli": "^0.1.13",
+    "qrcode": "^1.5.4",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0"
+  }
+}
